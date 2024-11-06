@@ -1,0 +1,23 @@
+name: SonarQube Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SonarQube Scan
+        uses: vtex/action-sonarqube@main
+        with:
+          # githubToken: ${{ secrets.GITHUB_TOKEN }} # Optional if needed for PRs
+          host: ${{ secrets.SONAR_HOST_URL }}
+          token: ${{ secrets.SONAR_TOKEN }}
+          projectKey: "test.streamlit" # Replace with your project key
+          projectName: "streamlit-example" # Replace with your project name
+          projectBaseDir: "." # Adjust if necessary
