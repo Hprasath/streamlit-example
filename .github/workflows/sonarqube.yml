@@ -1,11 +1,5 @@
-name: SonarQube Scan
-
-on:
-  push:
-    branches:
-      - main
-      - master
-
+on: push
+name: SonarQube Workflow
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
